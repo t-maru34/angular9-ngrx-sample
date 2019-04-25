@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-card class="card">
+    <form class="signin-form" [formGroup]="signInForm">
+      <div class="mat-title form-item">Welcome</div>
+
+      <mat-form-field class="form-item">
+        <input matInput type="email" formControlName="email" placeholder="Email">
+        <mat-error *ngIf="signInForm.get('email').hasError('required')">Required.</mat-error>
+        <mat-error *ngIf="signInForm.get('email').hasError('email')">Invalid format of email.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-item">
+        <input matInput type="password" formControlName="password" placeholder="Password">
+        <mat-error *ngIf="signInForm.get('password').hasError('required')">Required.</mat-error>
+        <mat-hint *ngIf="showPassword" [@fadeInFadeOut]>{{ signInForm.get('password').value }}</mat-hint>
+      </mat-form-field>
+
+      <mat-checkbox class="form-item" color="primary" [checked]="showPassword" (change)="togglePasswordVisibility()">Show password</mat-checkbox>
+
+      <button mat-raised-button type="submit" color="primary" (click)="signIn()">Sign in</button>
+    </form>
+  </mat-card>
+</div>
