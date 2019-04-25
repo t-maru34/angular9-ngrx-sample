@@ -6,7 +6,81 @@ $app-primary: mat-palette($mat-light-blue);
 $app-accent: mat-palette($mat-amber, A200, A100, A400);
 $app-theme: mat-light-theme($app-primary, $app-accent);
 
-@include angular-material-theme($app-theme);
+// @include angular-material-theme($app-theme);
+
+$base-warn: map-get($app-theme, warn);
+$base-foreground: map-get($app-theme, foreground);
+$base-background: map-get($app-theme, background);
+
+$custom-background: map-merge($base-background, (
+  status-bar: map-get($mat-blue-grey, 300),
+  app-bar:    map-get($mat-blue-grey, 100),
+  background: map-get($mat-blue-grey, 50),
+  card:       map-get($mat-grey, 50),
+  dialog:     map-get($mat-grey, 50),
+  raised-button: map-get($mat-grey, 50),
+));
+
+@function create-custom-theme($primary, $accent, $warn, $foreground, $background) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $foreground,
+    background: $background,
+  );
+}
+
+$app-custom-theme: create-custom-theme(
+  $app-primary,
+  $app-accent,
+  $base-warn,
+  $base-foreground,
+  $custom-background,
+);
+
+@include angular-material-theme($app-custom-theme);
+
+// https://github.com/angular/material2/blob/master/src/material/core/theming/_palette.scss
+// Default foreground and background palette
+//
+// // Background palette for light themes.
+// $mat-light-theme-background: (
+//   status-bar: map_get($mat-grey, 300),
+//   app-bar:    map_get($mat-grey, 100),
+//   background: map_get($mat-grey, 50),
+//   hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+//   card:       white,
+//   dialog:     white,
+//   disabled-button: rgba(black, 0.12),
+//   raised-button: white,
+//   focused-button: $dark-focused,
+//   selected-button: map_get($mat-grey, 300),
+//   selected-disabled-button: map_get($mat-grey, 400),
+//   disabled-button-toggle: map_get($mat-grey, 200),
+//   unselected-chip: map_get($mat-grey, 300),
+//   disabled-list-option: map_get($mat-grey, 200),
+// );
+
+// // Foreground palette for light themes.
+// $mat-light-theme-foreground: (
+//   base:              black,
+//   divider:           $dark-dividers,
+//   dividers:          $dark-dividers,
+//   disabled:          $dark-disabled-text,
+//   disabled-button:   rgba(black, 0.26),
+//   disabled-text:     $dark-disabled-text,
+//   elevation:         black,
+//   hint-text:         $dark-disabled-text,
+//   secondary-text:    $dark-secondary-text,
+//   icon:              rgba(black, 0.54),
+//   icons:             rgba(black, 0.54),
+//   text:              rgba(black, 0.87),
+//   slider-min:        rgba(black, 0.87),
+//   slider-off:        rgba(black, 0.26),
+//   slider-off-active: rgba(black, 0.38),
+// );
 
 * {
   font-family: 'GenShinGothic-P-Light';
@@ -17,5 +91,5 @@ html, body {
   height: 100%;
   width: 100%;
   margin: 0;
-  background-color: map_get($mat-blue-grey, 50);
+  background-color: map-get($mat-blue-grey, 50);
 }
