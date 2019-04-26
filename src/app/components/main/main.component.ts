@@ -10,4 +10,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  signOut() {
+    console.log('sign out');
+  }
 }

@@ -14,7 +14,9 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSnackBarModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -43,6 +45,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatSnackBarModule,
+    MatMenuModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([])
   ],

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular7-ngrx-sample';
+
+  constructor(private snackBar: MatSnackBar) {}
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, null, { duration: 3000 });
+  }
 }
