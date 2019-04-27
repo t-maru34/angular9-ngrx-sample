@@ -26,6 +26,7 @@ import { MainComponent } from './components/main/main.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { InformationDialogComponent } from './components/information-dialog/information-dialog.component';
+import { AuthEffects } from './store/effects/auth.effects';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { InformationDialogComponent } from './components/information-dialog/info
     MatMenuModule,
     MatDialogModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [],
   entryComponents: [InformationDialogComponent],

@@ -1,6 +1,5 @@
 import { createAction, union } from '@ngrx/store';
-import { AppMessageEvent, DisplayType } from 'src/app/models/message-event';
-
+import { DisplayType } from 'src/app/models/message-event';
 
 export const dispatchInfoMessage = createAction(
   '[Message] dispatch info message',

@@ -1,4 +1,3 @@
-import { Action } from '@ngrx/store';
 import { AppMessageEvent, MessageType } from 'src/app/models/message-event';
 import { MessageActions, dispatchInfoMessage, dispatchErrorMessage } from '../actions/message.actions';
 
