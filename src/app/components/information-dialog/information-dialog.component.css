@@ -1,0 +1,14 @@
+.title {
+  margin-bottom: 8px;
+}
+
+.content > .mat-subheading-2 {
+  margin-bottom: 0;
+}
+
+.action-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 16px;
+}

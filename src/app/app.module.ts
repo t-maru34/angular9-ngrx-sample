@@ -16,7 +16,8 @@ import {
   MatInputModule,
   MatCheckboxModule,
   MatSnackBarModule,
-  MatMenuModule
+  MatMenuModule,
+  MatDialogModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,13 +25,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { InformationDialogComponent } from './components/information-dialog/information-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     HomeComponent,
-    SignInComponent
+    SignInComponent,
+    InformationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +50,12 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     MatCheckboxModule,
     MatSnackBarModule,
     MatMenuModule,
+    MatDialogModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([])
   ],
   providers: [],
+  entryComponents: [InformationDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

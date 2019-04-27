@@ -1,0 +1,8 @@
+<h2 class="mat-title title">{{ title }}</h2>
+<div class="content">
+  <div class="mat-subheading-2">{{ body }}</div>
+</div>
+<div class="action-container" *ngIf="leftButtonLabel || rightButtonLabel">
+  <button mat-button *ngIf="leftButtonLabel" (click)="onLeftClick()">{{ leftButtonLabel }}</button>
+  <button mat-button *ngIf="rightButtonLabel" (click)="onRightClick()">{{ rightButtonLabel }}</button>
+</div>

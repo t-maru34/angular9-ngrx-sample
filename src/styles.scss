@@ -165,3 +165,8 @@ html, body {
   margin: 0;
   background-color: map-get($mat-blue-grey, 50);
 }
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 16px;
+  margin: 0;
+}
