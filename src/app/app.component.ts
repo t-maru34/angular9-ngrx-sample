@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from './store/reducers';
 import { filter } from 'rxjs/operators';
-import { MatSnackBar, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { InformationDialogComponent, InformationDialogData } from './components/information-dialog/information-dialog.component';
 import { getMessageEvent } from './store/selectors/message.selector';
