@@ -1,60 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './store/reducers';
-import { EffectsModule } from '@ngrx/effects';
-
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatToolbarModule } from '@angular/material/toolbar';
-
+// Modules
 import { AppRoutingModule } from './app-routing.module';
+import { AppUiModule } from './app-ui.module';
+
+// NgRx
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './effects/auth.effects';
+import { CoreEffects } from './effects/core.effects';
+
+// Entry Components
+import { InformationDialogComponent } from './views/presentations/information-dialog/information-dialog.component';
+
+// Components
 import { AppComponent } from './app.component';
-import { MainComponent } from './components/main/main.component';
-import { HomeComponent } from './components/home/home.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { InformationDialogComponent } from './components/information-dialog/information-dialog.component';
-import { AuthEffects } from './store/effects/auth.effects';
+import { MainComponent } from './views/containers/main/main.component';
+import { HomeComponent } from './views/containers/home/home.component';
+import { SignInComponent } from './views/containers/sign-in/sign-in.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    HomeComponent,
-    SignInComponent,
-    InformationDialogComponent
-  ],
+  declarations: [AppComponent, MainComponent, HomeComponent, SignInComponent, InformationDialogComponent],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatSnackBarModule,
-    MatMenuModule,
-    MatDialogModule,
+    AppUiModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects, CoreEffects])
   ],
   providers: [],
   entryComponents: [InformationDialogComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

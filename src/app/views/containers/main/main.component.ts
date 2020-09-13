@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import { InformationDialogData, InformationDialogComponent } from '../information-dialog/information-dialog.component';
-import { AppState } from 'src/app/store/reducers';
-import { signOut } from 'src/app/store/actions/auth.actions';
-import { RoutingPath } from 'src/app/app-routing-path';
+import { InformationDialogData, InformationDialogComponent } from '../../presentations/information-dialog/information-dialog.component';
+import { AppState } from 'src/app/reducers';
+import { signOut } from 'src/app/actions/auth.actions';
+import { RoutingPathResolver } from 'src/app/app-routing-path-resolver';
 
 @Component({
   selector: 'app-main',
@@ -26,7 +26,7 @@ export class MainComponent implements OnInit {
   signOut() {
     const action = () => {
       this.store.dispatch(signOut());
-      this.router.navigate([RoutingPath.SIGN_IN]);
+      this.router.navigate([RoutingPathResolver.resolveSignIn()]);
     };
     const data: InformationDialogData = {
       title: 'Sign out',

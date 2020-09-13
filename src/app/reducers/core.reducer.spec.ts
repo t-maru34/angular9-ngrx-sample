@@ -1,6 +1,6 @@
-import { reducer, initialState } from './message.reducer';
+import { reducer, initialState } from './core.reducer';
 
-describe('Message Reducer', () => {
+describe('Core Reducer', () => {
   describe('an unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as any;

@@ -10,9 +10,8 @@
       </mat-form-field>
 
       <mat-form-field class="form-item">
-        <input matInput type="password" formControlName="password" placeholder="Password">
+        <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Password">
         <mat-error *ngIf="signInForm.get('password').hasError('required')">Required.</mat-error>
-        <mat-hint *ngIf="showPassword" [@fadeInFadeOut]>{{ signInForm.get('password').value }}</mat-hint>
       </mat-form-field>
 
       <mat-checkbox class="form-item" color="primary" [checked]="showPassword" (change)="togglePasswordVisibility()">Show password</mat-checkbox>
