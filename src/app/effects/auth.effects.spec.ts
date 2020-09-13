@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
@@ -10,13 +10,10 @@ describe('AuthEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        AuthEffects,
-        provideMockActions(() => actions$)
-      ]
+      providers: [AuthEffects, provideMockActions(() => actions$)]
     });
 
-    effects = TestBed.get(AuthEffects);
+    effects = TestBed.inject(AuthEffects);
   });
 
   it('should be created', () => {

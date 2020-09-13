@@ -2,15 +2,16 @@ import {
   ActionReducerMap,
   MetaReducer
 } from '@ngrx/store';
-import { environment } from '../../../environments/environment';
-import * as fromMessage from './message.reducer';
+import { environment } from '../../environments/environment';
+
+import * as fromCore from './core.reducer';
 
 export interface AppState {
-  message: fromMessage.State;
+  core: fromCore.State;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  message: fromMessage.reducer
+  core: fromCore.reducer
 };
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

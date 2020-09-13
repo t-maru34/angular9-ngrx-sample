@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Animations } from 'src/app/utils/animations';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css'],
-  animations: [Animations.fadeInFadeOut]
+  styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
   showPassword = false;

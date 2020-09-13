@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RoutingPath } from './app-routing-path';
-import { MainComponent } from './components/main/main.component';
-import { HomeComponent } from './components/home/home.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
+import { MainComponent } from './views/containers/main/main.component';
+import { HomeComponent } from './views/containers/home/home.component';
+import { SignInComponent } from './views/containers/sign-in/sign-in.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     children: [
-      { path: '', redirectTo: RoutingPath.HOME, pathMatch: 'full' },
-      { path: RoutingPath.HOME, component: HomeComponent }
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent }
     ]
   },
-  { path: RoutingPath.SIGN_IN, component: SignInComponent },
-  { path: '**', redirectTo: RoutingPath.HOME, pathMatch: 'full' }
+  { path: 'sign-in', component: SignInComponent },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
