@@ -42,6 +42,7 @@ export class CoreEffects {
               break;
             case DisplayType.DIALOG:
               this.openDialog('Error', action.message || action.error.message);
+              break;
           }
         })
       ),
